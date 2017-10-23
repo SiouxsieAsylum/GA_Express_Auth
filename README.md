@@ -40,7 +40,7 @@ Watch me do this, don't try to follow along. It's going to be a long process, an
 
 ## Alter the database
 
-First we need to add a new table to the database to add a users table. We're also going to alter the movies table so that it has a user_id column.
+First we need to add a new table to the database to add a users table. We're also going to alter the flashcards table so that it has a user_id column.
 
 ```sql
 -- db/migrations/migration-[dateandtime].sql
@@ -57,3 +57,15 @@ CREATE TABLE IF NOT EXISTS users (
 ALTER TABLE flashcards
 ADD COLUMN user_id INTEGER REFERENCES users(id);
 ```
+
+## Install and require new packages
+
+We need to `npm install --save` a number of new packages:
+- `bcryptjs`: the blowfish encryption package to encrypt and decrypt our passwords. (**NOTE**: There's also a package `bcrypt`. We want `bcryptjs`.)
+- `dotenv`
+- `express-session`: to store our sessions on the express server. (**NOTE**: There is also a package `express-sessions`. We want `express-session`.)
+- `cookie-parser`: to parse cookies
+- `passport`: express middleware to handle authentication
+- `passport-local`: passport strategy to set up the username-password login flow
+
+Then, we need to require them in our server.js.
