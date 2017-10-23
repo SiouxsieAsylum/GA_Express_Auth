@@ -2,7 +2,7 @@ const db = require('../db/config');
 
 const User = {};
 
-user.findByUserName = userName => {
+User.findByUserName = userName => {
   return db.oneOrNone(`
     SELECT * FROM users
     WHERE username = $1
