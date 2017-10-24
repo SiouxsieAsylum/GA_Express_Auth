@@ -36,7 +36,7 @@
 
 # Steps to Implement Passport
 
-Watch me do this, don't try to follow along. It's going to be a long process, and there probably won't be a lab at the end. That's okay. Auth is one of things where you just have to follow the step by step guide all the way down.
+Watch me do this, don't try to follow along. It's going to be a long process. That's okay. Auth is one of things where you just have to follow the step by step guide all the way down.
 
 ## Alter the database
 
@@ -70,7 +70,7 @@ We need to `npm install --save` a number of new packages:
 
 Then, we need to require them in our server.js.
 
-`bcryptjs` we'll use in a later step. But, let's set up and require some of the others. In `app.js`, let's require our new middleware and set them up.
+`bcryptjs` we'll use in a later step. But, let's set up and require some of the others. In `server.js`, let's require our new middleware and set them up.
 
 Under requiring method-override:
 
@@ -107,7 +107,7 @@ SECRET_KEY=sldkfjlskdjfoiwejrljsdlkfjoisdkljflkweoisdlkf
 (It can just be a long string of gibberish.)
 
 <details>
-<summary>At this point, <code>app.js</code> looks like this.</summary>
+<summary>At this point, <code>server.js</code> looks like this.</summary>
 
 ```js
 // import express from our dependencies
@@ -305,15 +305,11 @@ const authHelpers = require('../services/auth/auth-helpers');
 const usersController = require('../controllers/users-controller');
 
 authRouter.get('/login', authHelpers.loginRedirect, (req, res) => {
-  res.render('auth/login', {
-    currentPage: 'login', // this is specific to the flashcards app bc of the CSS setup
-  });
+  res.render('auth/login');
 });
 
 authRouter.get('/register', authHelpers.loginRedirect, (req, res) => {
-  res.render('auth/register', {
-    currentPage: 'register', // see above
-  });
+  res.render('auth/register');
 });
 ```
 
