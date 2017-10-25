@@ -9,15 +9,16 @@
 
 ### Sessions
 
+- Holds info on whether a person is logged in or what they're doing
 - The session is an integral part of a web application.
 - It allows data to be passed throughout the application through cookies that are stored on the browser and matched up to a server-side store.
 - Usually sessions are used to hold information about the logged in status of users as well as other data that needs to be accessed throughout the app.
 - We will be working with [express-session](https://github.com/expressjs/session) to enable sessions within our flashcards app.
 
 ### Password Encryption
-
+- Four levels of password security: plain text (terrible), two-way encryption (meh), hashing(never decripted random strings) (blowfish), hashing with a salt(random string attached to tront of password and then encripted)
 - When storing passwords in your database you **never** want to store plain text passwords. Ever.
-- There are a variety of encryption methods available including MD5, SHA1, SHA2, and Blowfish.
+- There are a variety of encryption methods available including MD5, SHA1, SHA2, and **Blowfish**.
 - Check out this [video on password security](https://www.youtube.com/watch?v=7U-RbOKanYs)
 
 ### Using `bcrypt`
